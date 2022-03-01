@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "levi-barker-projects": {
+      "hosting": {
+        "angular-firebase-manager": [
+          "angular-firebase-manager"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "levi-barker-projects"
+  }
+}

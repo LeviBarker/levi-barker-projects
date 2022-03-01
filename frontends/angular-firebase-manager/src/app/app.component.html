@@ -1,0 +1,16 @@
+<main id="app-container">
+  <mat-toolbar id="app-toolbar" fxLayout="row" fxLayoutAlign="space-between center">
+    <section id="app-toolbar-left">
+      <button mat-icon-button>
+        Menu
+      </button>
+      <span>App</span>
+    </section>
+    <section id="app-toolbar-right">
+      <button mat-button>Actions</button>
+    </section>
+  </mat-toolbar>
+  <section id="app-content">
+    <router-outlet></router-outlet>
+  </section>
+</main>
