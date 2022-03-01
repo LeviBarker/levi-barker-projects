@@ -1,16 +1,22 @@
 <main id="app-container">
-  <mat-toolbar id="app-toolbar" fxLayout="row" fxLayoutAlign="space-between center">
-    <section id="app-toolbar-left">
+  <mat-toolbar color="primary" id="app-toolbar" fxLayout="row" fxLayoutAlign="space-between center">
+    <section id="app-toolbar-left" fxLayout="row" fxLayoutAlign="flex-start center" fxLayoutGap="8px">
       <button mat-icon-button>
-        Menu
+        <mat-icon>menu</mat-icon>
       </button>
       <span>App</span>
     </section>
-    <section id="app-toolbar-right">
+    <section id="app-toolbar-right" fxLayout="row" fxLayoutAlign="flex-end center">
       <button mat-button>Actions</button>
     </section>
   </mat-toolbar>
   <section id="app-content">
-    <router-outlet></router-outlet>
+    <mat-drawer-container id="app-drawer-container">
+      <mat-drawer mode="side" opened>Drawer content</mat-drawer>
+      <mat-drawer-content>
+        inner content
+        <router-outlet></router-outlet>
+      </mat-drawer-content>
+    </mat-drawer-container>
   </section>
 </main>
