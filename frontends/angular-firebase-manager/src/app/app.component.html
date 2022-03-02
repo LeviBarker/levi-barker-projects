@@ -4,19 +4,27 @@
       <button mat-icon-button>
         <mat-icon>menu</mat-icon>
       </button>
-      <span>App</span>
+      <span>{{title}}</span>
     </section>
-    <section id="app-toolbar-right" fxLayout="row" fxLayoutAlign="flex-end center">
-      <button mat-button>Actions</button>
+    <section *ngIf="authInitialized" id="app-toolbar-right" fxLayout="row" fxLayoutAlign="flex-end center">
+      <button *ngIf="(auth.user | async); else showLogin" mat-button (click)="signOut()">
+        Logout
+      </button>
     </section>
   </mat-toolbar>
   <section id="app-content">
     <mat-drawer-container id="app-drawer-container">
       <mat-drawer mode="side" opened>Drawer content</mat-drawer>
-      <mat-drawer-content>
-        inner content
+      <mat-drawer-content *ngIf="auth.user | async as user">
+        {{user.displayName}}
+        <img [src]="user.photoURL" />
         <router-outlet></router-outlet>
       </mat-drawer-content>
     </mat-drawer-container>
   </section>
 </main>
+<ng-template #showLogin>
+  <button mat-button (click)="signInWithGoogle()">
+    Login
+  </button>
+</ng-template>
